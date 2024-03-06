@@ -1,4 +1,4 @@
-package com.senac.Entity;
+package com.senac.entity;
 
 import java.util.Date;
 
