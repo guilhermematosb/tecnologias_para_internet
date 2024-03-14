@@ -1,10 +1,10 @@
-package com.senac.controller;
+package com.senac.exercicio_01.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.senac.entity.Task;
+import com.senac.exercicio_01.entity.Task;
 
 import java.util.ArrayList;
 import java.util.Date;

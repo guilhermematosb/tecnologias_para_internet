@@ -1,4 +1,4 @@
-package com.senac.entity;
+package com.senac.exercicio_01.entity;
 
 import java.util.Date;
 

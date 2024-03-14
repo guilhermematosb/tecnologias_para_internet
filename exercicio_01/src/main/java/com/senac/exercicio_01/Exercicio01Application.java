@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.senac")
+// @ComponentScan(basePackages = "com.senac")
 public class Exercicio01Application {
 
 	public static void main(String[] args) {
