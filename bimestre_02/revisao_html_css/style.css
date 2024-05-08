@@ -77,3 +77,61 @@ footer a + a{
   bottom: 0px;
   left: 0px;
 }
+
+/* styles.css */
+
+/* Estilo para os fieldsets */
+fieldset {
+  /* border: none; */
+  margin-bottom: 20px;
+}
+
+legend {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Estilo básico para todos os campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilo para campos de checkbox e radio */
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Estilo para o botão de envio */
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Estilo para as etiquetas */
+label {
+  font-weight: bold;
+}
+
+input:invalid {
+ border: 1px solid #FF1010;
+}
