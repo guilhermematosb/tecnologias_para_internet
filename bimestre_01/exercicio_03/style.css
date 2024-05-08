@@ -1,0 +1,18 @@
+h1 {
+    background-color: blue;
+    border: 5px dotted red;
+    padding: 50px 20px 5px 30px;
+    margin: 50px;
+}
+
+span{
+    background-color: brown;
+}
+
+#identificador {
+    color: aliceblue;
+}
+
+.classe {
+    background-color: aqua;
+}
