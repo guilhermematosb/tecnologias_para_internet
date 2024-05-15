@@ -136,3 +136,5 @@ console.log(tecnologias);
 // remover um item do começo
 tecnologias.shift();
 console.log(tecnologias);
+
+console.log(tecnologias.indexOf('css'));

@@ -3,6 +3,7 @@ String
 Representa uma cadeia de caracteres, como uma palavra, uma frase, ou um texto.
 */
 let nome = "Guilherme Barbosa";
+console.log(nome);
 
 // ------------------------------------------------------------------------------------------------
 
@@ -12,6 +13,7 @@ Number
 */
 let idade = 12;
 let pontuacao = -8.9;
+console.log(idade, pontuacao);
 
 // ------------------------------------------------------------------------------------------------
 
@@ -30,7 +32,7 @@ Objeto
 É um tipo de dado estrutural que representa um objeto, do mundo real ou não, 
 que recebe atributos (propriedades) e métodos (funcionalidades).
 */
-const usuario = {
+let usuario = {
     nome: "Gui Barbosa",
     idade: 20,
 }
