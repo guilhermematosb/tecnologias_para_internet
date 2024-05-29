@@ -1,0 +1,99 @@
+<!-- 
+Melhorias Propostas
+
+  Validação de Entrada:
+      Verifique se a entrada do usuário é um número válido.
+      Garanta que o número está dentro do intervalo permitido (0-10).
+
+  Melhor Mensagem de Feedback:
+      Dê feedback mais detalhado para o usuário, por exemplo, se o número está muito alto ou baixo.
+
+  Estrutura em Funções:
+      Encapsule a lógica em funções para melhor organização e reutilização do código.
+
+  Interface Gráfica:
+      Crie uma interface HTML para melhorar a experiência do usuário.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Adivinhação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #feedback {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jogo da Adivinhação</h1>
+        <p>Advinhe o número que estou pensando? Está entre 0 e 10</p>
+        <input type="number" id="guess" placeholder="Digite seu palpite">
+        <button onclick="adivinhar()">Enviar</button>
+        <p id="feedback"></p>
+    </div>
+
+    <script>
+        const randomNumber = Math.floor(Math.random() * 11); // Gera um número aleatório entre 0 e 10
+        let attempts = 0; // Inicializa o contador de tentativas
+
+        function adivinhar() {
+            const guess = document.getElementById('guess').value;
+            const feedback = document.getElementById('feedback');
+
+            // Validação de entrada
+            if (guess === '' || isNaN(guess) || guess < 0 || guess > 10) {
+                feedback.textContent = "Por favor, insira um número válido entre 0 e 10.";
+                return;
+            }
+
+            attempts++; // Incrementa o contador de tentativas
+
+            if (Number(guess) === randomNumber) {
+                feedback.textContent = `Parabéns! O número que eu pensei foi ${randomNumber} e você adivinhou o número em ${attempts} tentativas.`;
+            } else if (Number(guess) < randomNumber) {
+                feedback.textContent = "Erro, tente novamente: O número é maior.";
+            } else {
+                feedback.textContent = "Erro, tente novamente: O número é menor.";
+            }
+        }
+    </script>
+</body>
+</html>
