@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador de Contatos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Gerenciador de Contatos</h1>
+
+    <!-- Formulário para adicionar novos contatos -->
+    <form id="formulario-contato">
+      <input type="text" id="nome" placeholder="Nome" required />
+      <input type="text" id="telefone" placeholder="Telefone" required />
+      <button type="submit">Adicionar Contato</button>
+    </form>
+
+    <!-- Mensagem de erro -->
+    <div id="mensagem-erro" style="color: red"></div>
+
+    <!-- Campo de busca -->
+    <input type="text" id="campo-busca" placeholder="Buscar Contatos" />
+    
+    <!-- Lista para exibir os contatos -->
+    <ul id="lista-contatos"></ul>
+
+
+    <script src="app.js"></script>
+  </body>
+</html>
