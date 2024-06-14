@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts e Usuários</title>
+</head>
+<body>
+    <div id="data"></div>
+    <div id="error"></div>
+
+    <script>
+        async function getPostsAndUsers() {
+            try {
+                let postsResponse = await fetch('https://jsonplaceholder.typicode.com/posts');
+                let usersResponse = await fetch('https://jsonplaceholder.typicode.com/users');
+                
+                if (!postsResponse.ok || !usersResponse.ok) {
+                    throw new Error('Erro na requisição');
+                }
+
+                let posts = await postsResponse.json();
+                let users = await usersResponse.json();
+                
+                let dataContainer = document.getElementById('data');
+                dataContainer.innerHTML = '<h2>Posts</h2>';
+                
+                posts.forEach(post => {
+                    let postElement = document.createElement('div');
+                    postElement.innerHTML = `<h3>${post.title}</h3><p>${post.body}</p>`;
+                    dataContainer.appendChild(postElement);
+                });
+
+                dataContainer.innerHTML += '<h2>Usuários</h2>';
+
+                users.forEach(user => {
+                    let userElement = document.createElement('div');
+                    userElement.innerHTML = `<h3>${user.name}</h3><p>${user.email}</p>`;
+                    dataContainer.appendChild(userElement);
+                });
+            } catch (error) {
+                let errorContainer = document.getElementById('error');
+                errorContainer.textContent = 'Ocorreu um erro ao buscar os dados: ' + error.message;
+                console.error('Erro:', error);
+            }
+        }
+
+        getPostsAndUsers();
+    </script>
+</body>
+</html>

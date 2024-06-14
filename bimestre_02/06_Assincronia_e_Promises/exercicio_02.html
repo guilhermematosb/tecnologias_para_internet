@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratamento de Erros</title>
+</head>
+<body>
+    <div id="users"></div>
+    <div id="error"></div>
+
+    <script>
+        async function getUsers() {
+            try {
+                let response = await fetch('https://jsonplaceholder.typicode.com/users');
+                if (!response.ok) {
+                    throw new Error('Erro na requisição');
+                }
+                let users = await response.json();
+
+                let usersContainer = document.getElementById('users');
+                users.forEach(user => {
+                    let userElement = document.createElement('div');
+                    userElement.innerHTML = `<h3>${user.name}</h3><p>${user.email}</p>`;
+                    usersContainer.appendChild(userElement);
+                });
+            } catch (error) {
+                let errorContainer = document.getElementById('error');
+                errorContainer.textContent = 'Ocorreu um erro ao buscar os usuários: ' + error.message;
+                console.error('Erro:', error);
+            }
+        }
+
+        getUsers();
+    </script>
+</body>
+</html>
