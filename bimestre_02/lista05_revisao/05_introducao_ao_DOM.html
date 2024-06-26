@@ -1,0 +1,74 @@
+<!-- Crie um campo de input onde o usuário pode digitar um texto e um botão. 
+Quando o botão for clicado, o texto digitado deve ser exibido em um parágrafo. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Exercise</title>
+</head>
+<body>
+    <input type="text" id="textoInput">
+    <button id="botao">Exibir Texto</button>
+    <p id="paragrafo"></p>
+
+    <script>
+        document.getElementById("botao").addEventListener("click", function() {
+            let texto = document.getElementById("textoInput").value;
+            document.getElementById("paragrafo").innerText = texto;
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- Crie uma lista de tarefas onde o usuário pode adicionar e remover tarefas. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Exercise</title>
+</head>
+<body>
+    <input type="text" id="tarefaInput">
+    <button id="adicionarTarefa">Adicionar Tarefa</button>
+    <ul id="listaTarefas"></ul>
+
+    <script>
+        document.getElementById("adicionarTarefa").addEventListener("click", function() {
+            let tarefa = document.getElementById("tarefaInput").value;
+            let li = document.createElement("li");
+            li.textContent = tarefa;
+            li.addEventListener("click", function() {
+                this.remove();
+            });
+            document.getElementById("listaTarefas").appendChild(li);
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- Crie um botão que altera a cor de fundo da página quando clicado. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Exercise</title>
+</head>
+<body>
+    <button id="mudarCor">Mudar Cor de Fundo</button>
+
+    <script>
+        document.getElementById("mudarCor").addEventListener("click", function() {
+            document.body.style.backgroundColor = 
+                document.body.style.backgroundColor === 'blue' ? 'white' : 'blue';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!-- Crie um campo de input onde o usuário pode digitar seu nome e salvar o nome no LocalStorage. 
+Ao recarregar a página, o nome salvo deve ser exibido. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage Exercise</title>
+</head>
+<body>
+    <input type="text" id="nomeInput" placeholder="Digite seu nome">
+    <button id="salvarNome">Salvar Nome</button>
+    <p id="nomeExibido"></p>
+
+    <script>
+        document.getElementById('salvarNome').addEventListener('click', function() {
+            const nome = document.getElementById('nomeInput').value;
+            localStorage.setItem('nome', nome);
+            exibirNome();
+        });
+
+        function exibirNome() {
+            const nomeSalvo = localStorage.getItem('nome');
+            if (nomeSalvo) {
+                document.getElementById('nomeExibido').innerText = `Olá, ${nomeSalvo}!`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', exibirNome);
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- Crie um pequeno aplicativo onde o usuário pode marcar suas tarefas como concluídas. 
+As tarefas concluídas devem ser salvas no LocalStorage. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage Exercise</title>
+</head>
+<body>
+    <input type="text" id="tarefaInput" placeholder="Nova tarefa">
+    <button id="adicionarTarefa">Adicionar Tarefa</button>
+    <ul id="listaTarefas"></ul>
+
+    <script>
+        document.getElementById('adicionarTarefa').addEventListener('click', function() {
+            const tarefa = document.getElementById('tarefaInput').value;
+            const li = document.createElement('li');
+            li.textContent = tarefa;
+            li.addEventListener('click', function() {
+                this.classList.toggle('concluida');
+                salvarTarefas();
+            });
+            document.getElementById('listaTarefas').appendChild(li);
+            salvarTarefas();
+        });
+
+        function salvarTarefas() {
+            const tarefas = [];
+            document.querySelectorAll('#listaTarefas li').forEach(li => {
+                tarefas.push({ texto: li.textContent, concluida: li.classList.contains('concluida') });
+            });
+            localStorage.setItem('tarefas', JSON.stringify(tarefas));
+        }
+
+        function carregarTarefas() {
+            const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+            tarefas.forEach(tarefa => {
+                const li = document.createElement('li');
+                li.textContent = tarefa.texto;
+                if (tarefa.concluida) {
+                    li.classList.add('concluida');
+                }
+                li.addEventListener('click', function() {
+                    this.classList.toggle('concluida');
+                    salvarTarefas();
+                });
+                document.getElementById('listaTarefas').appendChild(li);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', carregarTarefas);
+    </script>
+</body>
+</html>
